@@ -37,7 +37,7 @@ export default function ResearchLandingPage() {
     const handleScrollEvent = () => {
       const scrollPos = window.scrollY + 200;
       for (let i = sectionRefs.length - 1; i >= 0; i--) {
-        if (sectionRefs[i].ref.current && scrollPos >= sectionRefs[i].ref.current.offsetTop) {
+        if (sectionRefs[i].ref.current?.offsetTop !== undefined && scrollPos >= sectionRefs[i].ref.current.offsetTop) {
           setActiveSection(sectionRefs[i].name);
           break;
         }
