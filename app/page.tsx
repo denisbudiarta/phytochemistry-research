@@ -37,7 +37,8 @@ export default function ResearchLandingPage() {
     const handleScrollEvent = () => {
       const scrollPos = window.scrollY + 200;
       for (let i = sectionRefs.length - 1; i >= 0; i--) {
-        if (sectionRefs[i].ref.current?.offsetTop !== undefined && scrollPos >= sectionRefs[i].ref.current.offsetTop) {
+        const refCurrent = sectionRefs[i].ref.current;
+        if (refCurrent && scrollPos >= refCurrent.offsetTop) {
           setActiveSection(sectionRefs[i].name);
           break;
         }
@@ -45,7 +46,7 @@ export default function ResearchLandingPage() {
     };
     window.addEventListener('scroll', handleScrollEvent);
     return () => window.removeEventListener('scroll', handleScrollEvent);
-  }, []);
+  }, [sectionRefs]);  
 
   return (
     <div className="min-h-screen text-slate-800">
@@ -96,7 +97,7 @@ export default function ResearchLandingPage() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Phytochemistry & Bioactivity of Biological Materials
+            Fitokimia dan Bioaktivitas Bahan Hayati
           </h1>
           <p className="mt-6 text-lg text-slate-600">
             Eksplorasi senyawa alami dari material biologis melalui pendekatan
@@ -141,12 +142,12 @@ export default function ResearchLandingPage() {
         <h2 className="text-3xl font-bold text-center mb-12">Subbidang Penelitian</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { title: "Natural Product Chemistry", desc: "Isolasi dan karakterisasi senyawa alami dari berbagai material biologis." },
-            { title: "Metabolomics", desc: "Analisis profil metabolit untuk memahami komposisi kimia secara komprehensif." },
-            { title: "Bioactivity Screening", desc: "Evaluasi aktivitas biologis untuk mengidentifikasi potensi terapeutik." },
-            { title: "Functional Materials", desc: "Pengembangan material fungsional berbasis senyawa alami." },
-            { title: "Drug Discovery Support", desc: "Kontribusi terhadap tahap awal pengembangan kandidat obat." },
-            { title: "Sustainable Resources", desc: "Pendekatan ilmiah untuk pemanfaatan sumber daya alam secara bertanggung jawab." }
+            { title: "Fitokimia & Bioaktivitas Kesehatan", desc: "Ekstraksi dan isolasi metabolit sekunder dengan aktivitas antimikroba, antikanker, antioksidan, antiinflamasi, dan antidiabetes." },
+            { title: "Aplikasi Pertanian & Pangan", desc: "Senyawa bioaktif sebagai pestisida nabati dan penambah cita rasa alami." },
+            { title: "Nanoteknologi Fitokimia", desc: "Peningkatan stabilitas dan efektivitas senyawa bioaktif melalui pendekatan nano." },
+            { title: "Identifikasi & Karakterisasi Senyawa", desc: "Penentuan struktur dan karakterisasi senyawa aktif." },
+            { title: "Studi Mekanisme Keaktifan", desc: "Pendekatan in vitro, in vivo, dan in silico untuk memahami mekanisme kerja metabolit." },
+            { title: "Pengembangan Produk Aplikatif", desc: "Formulasi produk obat, skincare, dan pestisida nabati berbasis fitokimia." }
           ].map((item,i) => (
             <Card key={i} className="rounded-2xl hover:shadow-lg transition">
               <CardContent className="p-6">
@@ -166,14 +167,15 @@ export default function ResearchLandingPage() {
           <Card className="rounded-2xl mb-6">
             <CardContent className="p-8">
               <h3 className="font-semibold text-xl mb-2">Visi</h3>
-              <p className="text-slate-600">Menjadi pusat penelitian yang berkontribusi pada kemajuan ilmu fitokimia dan bioaktivitas untuk mendukung kesehatan global dan keberlanjutan.</p>
+              <p className="text-slate-600">meningkatkan riset unggulan, baik tingkat nasional maupun internasional dalam mengungkap potensi bahan hayati lokal melalui pendekatan fitokimia dan bioaktivitas untuk kemandirian obat bahan alam</p>
             </CardContent>
           </Card>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
-              "Mengembangkan metode analisis inovatif",
-              "Mengintegrasikan kimia dan evaluasi biologis",
-              "Mendorong pemanfaatan material alami secara berkelanjutan"
+              "Menyelenggarakan penelitian komprehensif mengenai isolasi, karakterisasi, dan standardisasi senyawa metabolit sekunder dari bahan alam.",
+              "Mengembangkan metode uji bioaktivitas (antioksidan, antikanker, antimikroba) secara in vitro dan in vivo yang valid dan terstandar, serta mengembangkan studi in-silico.",
+              "Membangun kolaborasi dengan industri farmasi dan kosmetik untuk hilirisasi produk berbasis bahan hayati.",
+              "Meningkatkan kompetensi peneliti dalam teknik analisis kimia bahan alam mutakhir. "
             ].map((m,i)=>(
               <Card key={i} className="rounded-2xl"><CardContent className="p-6">{m}</CardContent></Card>
             ))}
@@ -181,25 +183,8 @@ export default function ResearchLandingPage() {
         </div>
       </section>
 
-      {/* OBJECTIVES */}
-      <section ref={objectivesRef} className="bg-emerald-50 py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Objective & Target</h2>
-        <div className="space-y-6">
-          {["Mengidentifikasi dan mengkarakterisasi senyawa bioaktif","Mengevaluasi aktivitas biologis menggunakan model terstandarisasi","Mengembangkan potensi aplikasi terapeutik dan fungsional"].map((obj,i)=>(
-            <Card key={i} className="rounded-2xl">
-              <CardContent className="p-6 flex gap-4">
-                <span className="font-bold text-xl">{i+1}.</span>
-                <p className="text-slate-600">{obj}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-      </section>
-
       {/* OBJECTIVE & TARGET - Updated Design */}
-      <section ref={objectivesRef} className="bg-emerald-50 py-20 px-6">
+      <section ref={objectivesRef} className="bg-emerald-0 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Tujuan & Sasaran Penelitian</h2>
 
@@ -207,10 +192,10 @@ export default function ResearchLandingPage() {
             {/* Tujuan */}
             <div className="bg-white rounded-3xl shadow hover:shadow-lg transition p-6">
               <h3 className="text-xl font-semibold mb-4 text-emerald-600">🎯 Tujuan</h3>
-              <ul className="list-disc list-inside space-y-2 text-slate-600">
-                <li>Mengetahui, memisahkan, dan mengidentifikasi jenis-jenis senyawa metabolit sekunder (seperti flavonoid, alkaloid, terpenoid, tanin) dalam suatu bahan hayati.</li>
+              <ul className=" space-y-3 text-slate-600">
+                <li>Mengetahui, memisahkan, dan mengidentifikasi jenis-jenis senyawa metabolit sekunder dalam suatu bahan hayati.</li>
                 <li>Menentukan struktur molekul senyawa aktif yang terisolasi.</li>
-                <li>Menguji aktivitas biologis atau bioaktivitas (seperti antioksidan, antiinflamasi, antikanker, antimikroba) dari ekstrak atau senyawa murni.</li>
+                <li>Menguji aktivitas biologis atau bioaktivitas dari ekstrak atau senyawa murni.</li>
                 <li>Menemukan bahan baku obat baru (lead compounds) yang aman dan efektif.</li>
                 <li>Memastikan kualitas dan keamanan produk herbal atau obat bahan alam.</li>
               </ul>
@@ -219,7 +204,7 @@ export default function ResearchLandingPage() {
             {/* Sasaran */}
             <div className="bg-white rounded-3xl shadow hover:shadow-lg transition p-6">
               <h3 className="text-xl font-semibold mb-4 text-emerald-600">🎯 Sasaran</h3>
-              <ul className="list-disc list-inside space-y-2 text-slate-600">
+              <ul className="list-disc space-y-3 text-slate-600">
                 <li>Melakukan uji kualitatif pendahuluan untuk mendeteksi golongan senyawa kimia dalam sampel tumbuhan atau hewan.</li>
                 <li>Mengukur efektivitas senyawa terhadap target biologis, misalnya uji antioksidan, uji toksisitas, uji antikanker, atau uji antimikroba.</li>
                 <li>Fokus pada senyawa yang tidak berperan langsung dalam pertumbuhan dasar, melainkan untuk pertahanan diri organisme.</li>
@@ -230,8 +215,6 @@ export default function ResearchLandingPage() {
           </div>
         </div>
       </section>
-
-      
 
       {/* ROADMAP */}
       <section ref={roadmapRef} className="bg-white py-20 px-6">
@@ -279,7 +262,7 @@ export default function ResearchLandingPage() {
       </section>
 
       {/* ROADMAP TIMELINE */}
-        <section className="bg-white py-24 px-6">
+        {/* <section className="bg-white py-24 px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-16">
               Roadmap Penelitian
@@ -308,10 +291,10 @@ export default function ResearchLandingPage() {
                   desc: "Strategi hilirisasi, kesiapan industri, dan komersialisasi inovasi."
                 }
               ].map((item, i) => (
-                <div key={i} className="mb-12 ml-6 relative">
+                <div key={i} className="mb-12 ml-6 relative"> */}
                   
                   {/* DOT */}
-                  <span className="absolute -left-9 flex items-center justify-center w-8 h-8 bg-emerald-600 rounded-full text-white">
+                  {/* <span className="absolute -left-9 flex items-center justify-center w-8 h-8 bg-emerald-600 rounded-full text-white">
                     ✓
                   </span>
 
@@ -330,42 +313,17 @@ export default function ResearchLandingPage() {
               ))}
             </div>
           </div>
-        </section>
-
-
-
-      {/* OUTPUT */}
-      <section ref={outputRef} className="bg-emerald-50 py-20 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-          <div>
-            <h2 className="text-3xl font-bold mb-6">Luaran yang Diharapkan</h2>
-            <ul className="space-y-3 text-slate-600">
-              <li>• Publikasi ilmiah bereputasi</li>
-              <li>• Database senyawa bioaktif</li>
-              <li>• Dataset bioaktivitas</li>
-              <li>• Potensi paten atau prototipe</li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold mb-6">Dampak Penelitian</h2>
-            <ul className="space-y-3 text-slate-600">
-              <li>• Kontribusi pada kemajuan sains</li>
-              <li>• Dukungan bagi sektor kesehatan & bioteknologi</li>
-              <li>• Pemanfaatan sumber daya alam berkelanjutan</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+        </section> */}
 
       {/* INNOVATION PIPELINE / LUARAN */}
-      <section className="bg-emerald-50 py-20 px-6">
+      {/* <section className="bg-emerald-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             Target Luaran & Dampak Inovasi
           </h2>
 
           <div className="grid md:grid-cols-4 gap-8 text-center">
-            {/* R&D */}
+           
             <div className="bg-white rounded-3xl p-6 shadow hover:shadow-lg transition">
               <div className="text-5xl mb-4">🔬</div>
               <h3 className="text-xl font-semibold mb-3">R & D</h3>
@@ -376,7 +334,6 @@ export default function ResearchLandingPage() {
               </ul>
             </div>
 
-            {/* Technology */}
             <div className="bg-white rounded-3xl p-6 shadow hover:shadow-lg transition">
               <div className="text-5xl mb-4">⚙️</div>
               <h3 className="text-xl font-semibold mb-3">Technology</h3>
@@ -387,7 +344,6 @@ export default function ResearchLandingPage() {
               </ul>
             </div>
 
-            {/* Product */}
             <div className="bg-white rounded-3xl p-6 shadow hover:shadow-lg transition">
               <div className="text-5xl mb-4">💊</div>
               <h3 className="text-xl font-semibold mb-3">Product</h3>
@@ -398,7 +354,6 @@ export default function ResearchLandingPage() {
               </ul>
             </div>
 
-            {/* Market */}
             <div className="bg-white rounded-3xl p-6 shadow hover:shadow-lg transition">
               <div className="text-5xl mb-4">📊</div>
               <h3 className="text-xl font-semibold mb-3">Market</h3>
@@ -409,7 +364,7 @@ export default function ResearchLandingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* OUTPUT - Innovation Pipeline / Luaran Selection Data */}
       <section ref={outputRef} className="bg-emerald-50 py-20 px-6">
