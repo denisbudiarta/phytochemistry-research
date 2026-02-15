@@ -112,7 +112,7 @@ export default function ResearchLandingPage() {
             terapeutik serta aplikasi berkelanjutan.
           </p>
           <div className="mt-8 flex gap-4">
-            <Button size="lg" className="rounded-2xl">Unduh Paper</Button>
+            <Button size="lg" className="rounded-2xl bg-emerald-600">Unduh Paper</Button>
             <Button size="lg" variant="outline" className="rounded-2xl">Jelajahi Riset</Button>
           </div>
         </motion.div>
@@ -120,14 +120,18 @@ export default function ResearchLandingPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-emerald-200 to-teal-100 h-80 rounded-3xl shadow-inner flex items-center justify-center"
+          className="bg-gradient-to-br from-emerald-200 to-teal-100 h-80 rounded-2xl shadow-inner flex items-center justify-center"
         >
-          <p className="text-slate-500">Ilustrasi ilmiah / gambar riset</p>
+            <img
+              src="/images/hero.jpg"
+              alt="Ilustrasi Riset"
+              className="w-full h-full object-cover rounded-2xl"
+            />
         </motion.div>
       </section>
 
       {/* INTRODUCTION */}
-      <section ref={introRef} className="bg-white py-20 px-6">
+      <section ref={introRef} className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
           <div>
             <h2 className="text-3xl font-bold mb-4">Pendahuluan</h2>
@@ -191,7 +195,7 @@ export default function ResearchLandingPage() {
       </section>
 
       {/* OBJECTIVE & TARGET - Updated Design */}
-      <section ref={objectivesRef} className="bg-emerald-0 py-20 px-6">
+      <section ref={objectivesRef} className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Tujuan & Sasaran Penelitian</h2>
 
@@ -224,7 +228,7 @@ export default function ResearchLandingPage() {
       </section>
 
       {/* ROADMAP */}
-      <section ref={roadmapRef} className="bg-white py-20 px-6">
+      <section ref={roadmapRef} className="bg-emerald-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Roadmap Penelitian</h2>
 
@@ -374,7 +378,7 @@ export default function ResearchLandingPage() {
       </section> */}
 
       {/* OUTPUT - Innovation Pipeline / Luaran Selection Data */}
-      <section ref={outputRef} className="bg-emerald-50 py-20 px-6">
+      <section ref={outputRef} className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Target Luaran & Dampak Inovasi</h2>
 
@@ -426,7 +430,7 @@ export default function ResearchLandingPage() {
       </section>
 
       {/* OUR TEAM SECTION - LinkedIn Removed */}
-      <section ref={teamsRef} className="bg-white py-20 px-6">
+      <section ref={teamsRef} className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Tim Peneliti</h2>
 
@@ -457,7 +461,7 @@ export default function ResearchLandingPage() {
                 rank: 'Lektor/Penata'
               }
             ].map((person, i) => (
-              <div key={i} className="bg-emerald-50 rounded-3xl shadow hover:shadow-lg transition p-6 text-center">
+              <div key={i} className="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
                 <img src={person.img} alt={person.name} className="w-32 h-32 mx-auto rounded-full object-cover mb-4" />
                 <h3 className="text-xl font-semibold mb-1">{person.name}</h3>
                 <p className="text-slate-600 mb-1">{person.position}</p>
