@@ -6,13 +6,14 @@ import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 export default function ResearchLandingPage() {
-  const introRef = useRef<HTMLElement>(null);
-  const subfieldsRef = useRef<HTMLElement>(null);
-  const visionRef = useRef<HTMLElement>(null);
-  const objectivesRef = useRef<HTMLElement>(null);
-  const roadmapRef = useRef<HTMLElement>(null);
-  const outputRef = useRef<HTMLElement>(null);
-  const teamsRef = useRef<HTMLElement>(null);
+  const introRef = useRef<HTMLElement | null>(null);
+  const subfieldsRef = useRef<HTMLElement | null>(null);
+  const visionRef = useRef<HTMLElement | null>(null);
+  const objectivesRef = useRef<HTMLElement | null>(null);
+  const roadmapRef = useRef<HTMLElement | null>(null);
+  const outputRef = useRef<HTMLElement | null>(null);
+  const teamsRef = useRef<HTMLElement | null>(null);
+
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('Pendahuluan');
@@ -27,8 +28,14 @@ export default function ResearchLandingPage() {
     { ref: teamsRef, name: 'Our Team' },
   ];
 
-  const handleScroll = (ref: React.RefObject<HTMLElement>, section: string) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  const handleScroll = (
+    ref: React.RefObject<HTMLElement | null>,
+    section: string
+  ) => {
+    const current = ref.current;
+    if (!current) return;
+  
+    current.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
     setActiveSection(section);
   };
