@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
+
 export default function ResearchLandingPage() {
   const introRef = useRef<HTMLElement | null>(null);
   const subfieldsRef = useRef<HTMLElement | null>(null);
@@ -39,6 +40,31 @@ export default function ResearchLandingPage() {
     setMenuOpen(false);
     setActiveSection(section);
   };
+
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+
+  const handleCardClick = (index: number) => {
+    setActiveCard(activeCard === index ? null : index);
+  };
+
+  const teamMembers = [
+    {
+      img: '/images/person1.jpg',
+      name: 'Prof. Dr. Wiwik Susanah Rita, M.Si.',
+      position: 'Ketua',
+      rank: 'Guru Besar',
+      cv: '/cv/wiwik.pdf',
+      email: 'wiwik@unud.ac.id'
+    },
+    {
+      img: '/images/person2.jpg',
+      name: 'Prof. Dr. I A Raka Astiti Asih, M.Si.',
+      position: 'Anggota 1',
+      rank: 'Guru Besar',
+      cv: '/cv/raka.pdf',
+      email: 'raka@unud.ac.id'
+    },
+  ]
 
   useEffect(() => {
     const handleScrollEvent = () => {
@@ -112,7 +138,7 @@ export default function ResearchLandingPage() {
             terapeutik serta aplikasi berkelanjutan.
           </p>
           <div className="mt-8 flex gap-4">
-            <Button size="lg" className="rounded-2xl bg-emerald-600">Unduh Paper</Button>
+            {/* <Button size="lg" className="rounded-2xl bg-emerald-600">Unduh Paper</Button> */}
             <Button size="lg" variant="outline" className="rounded-2xl">Jelajahi Riset</Button>
           </div>
         </motion.div>
@@ -203,7 +229,7 @@ export default function ResearchLandingPage() {
             {/* Tujuan */}
             <div className="bg-white rounded-3xl shadow hover:shadow-lg transition p-6">
               <h3 className="text-xl font-semibold mb-4 text-emerald-600">🎯 Tujuan</h3>
-              <ul className=" space-y-3 text-slate-600">
+              <ul className="list-disc space-y-3 text-slate-600">
                 <li>Mengetahui, memisahkan, dan mengidentifikasi jenis-jenis senyawa metabolit sekunder dalam suatu bahan hayati.</li>
                 <li>Menentukan struktur molekul senyawa aktif yang terisolasi.</li>
                 <li>Menguji aktivitas biologis atau bioaktivitas dari ekstrak atau senyawa murni.</li>
@@ -435,39 +461,79 @@ export default function ResearchLandingPage() {
           <h2 className="text-3xl font-bold text-center mb-12">Tim Peneliti</h2>
 
           <div className="grid md:grid-cols-4 gap-8">
-            {[
-              {
-                img: '/images/person1.jpg',
-                name: 'Prof. Dr. Dra. Wiwik Susanah Rita, M.Si.',
-                position: 'Ketua',
-                rank: 'Guru besar/ Pembina Utama Madya'
-              },
-              {
-                img: '/images/person2.jpg',
-                name: 'Prof. Dr. Dra. I A Raka Astiti Asih, M.Si.',
-                position: 'Anggota 1',
-                rank: 'Guru besar/ Pembina Tk.1'
-              },
-              {
-                img: '/images/person3.jpg',
-                name: 'Dr. Drs. I Wayan Suirta, M.Si.',
-                position: 'Anggota 2',
-                rank: 'Lektor Kepala/ Pembina Tk.1'
-              },
-              {
-                img: '/images/person4.jpg',
-                name: 'Drs. I Wayan Suarsa, M.Si.',
-                position: 'Anggota 3',
-                rank: 'Lektor/Penata'
-              }
-            ].map((person, i) => (
-              <div key={i} className="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
-                <img src={person.img} alt={person.name} className="w-32 h-32 mx-auto rounded-full object-cover mb-4" />
-                <h3 className="text-xl font-semibold mb-1">{person.name}</h3>
-                <p className="text-slate-600 mb-1">{person.position}</p>
-                <p className="text-emerald-600 font-medium mb-3">{person.rank}</p>
-              </div>
-            ))}
+          {teamMembers.map((person, idx) => {
+  const isActive = activeCard === idx;
+
+  return (
+    <div
+      key={idx}
+      className="group [perspective:1000px]"
+      onClick={() => handleCardClick(idx)}
+    >
+      <div
+        className={`relative h-96 w-full transition-transform duration-700 [transform-style:preserve-3d]
+        ${isActive ? '[transform:rotateY(180deg)]' : ''}
+        md:group-hover:[transform:rotateY(180deg)]`}
+      >
+
+        {/* FRONT SIDE */}
+        <div className="absolute inset-0 bg-white p-6 rounded-2xl shadow-md text-center [backface-visibility:hidden]">
+          <div className="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-4 border-emerald-100 shadow-md">
+            <img
+              src={person.img}
+              alt={person.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <h3 className="text-lg font-semibold">{person.name}</h3>
+          <p className="text-emerald-600 font-medium">{person.position}</p>
+          <p className="text-sm text-slate-500">{person.rank}</p>
+
+          <p className="mt-4 text-xs text-slate-400 md:hidden">
+            Tap to view details
+          </p>
+        </div>
+
+        {/* BACK SIDE */}
+        <div className="absolute inset-0 bg-emerald-600 text-white p-6 rounded-2xl shadow-md flex flex-col justify-center items-center gap-4 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+
+          <h3 className="text-lg font-semibold text-center">{person.name}</h3>
+
+          {/* Show CV */}
+          <a
+            href={person.cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white text-emerald-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition"
+          >
+            Show CV
+          </a>
+
+          {/* Contact Me */}
+          <a
+            href={`mailto:${person.email}?subject=Research Collaboration Inquiry`}
+            onClick={(e) => e.stopPropagation()}
+            className="border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-emerald-600 transition"
+          >
+            Contact Me
+          </a>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveCard(null);
+            }}
+            className="text-xs underline mt-2 md:hidden"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+})}
           </div>
         </div>
       </section>
