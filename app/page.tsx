@@ -249,7 +249,7 @@ export default function Navbar() {
                   className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6"
                 >
                   <Button
-                    onClick={() => scrollToSection(introRef)}
+                    onClick={() => scrollToSection(introRef, 'Pendahuluan')}
                     className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-6 text-lg font-bold rounded-2xl shadow-lg shadow-emerald-200 transition-all active:scale-95"
                   >
                     Jelajahi Riset
