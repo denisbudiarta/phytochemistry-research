@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 
 // Import UI Components (Shadcn)
@@ -26,20 +26,25 @@ import {
   Leaf,
 } from 'lucide-react';
 
-export default function ResearchLandingPage() {
-  const introRef = useRef<HTMLElement | null>(null);
-  const subfieldsRef = useRef<HTMLElement | null>(null);
-  const visionRef = useRef<HTMLElement | null>(null);
-  const objectivesRef = useRef<HTMLElement | null>(null);
-  const roadmapRef = useRef<HTMLElement | null>(null);
-  const outputRef = useRef<HTMLElement | null>(null);
-  const teamsRef = useRef<HTMLElement | null>(null);
+interface SectionRef {
+  ref: React.RefObject<HTMLElement | null>;
+  name: string;
+}
 
+export default function Navbar() {
+  const introRef = useRef<HTMLElement>(null);
+  const subfieldsRef = useRef<HTMLElement>(null);
+  const visionRef = useRef<HTMLElement>(null);
+  const objectivesRef = useRef<HTMLElement>(null);
+  const roadmapRef = useRef<HTMLElement>(null);
+  const outputRef = useRef<HTMLElement>(null);
+  const teamsRef = useRef<HTMLElement>(null);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('Pendahuluan');
 
-  const sectionRefs = [
+  // 2. Memoize array agar tidak memicu re-render pada useEffect
+  const sectionRefs: SectionRef[] = React.useMemo(() => [
     { ref: introRef, name: 'Pendahuluan' },
     { ref: subfieldsRef, name: 'Sub Bidang' },
     { ref: visionRef, name: 'Visi & Misi' },
@@ -47,94 +52,112 @@ export default function ResearchLandingPage() {
     { ref: roadmapRef, name: 'Roadmap' },
     { ref: outputRef, name: 'Luaran' },
     { ref: teamsRef, name: 'Our Team' },
-  ];
+  ], []);
 
-  const handleScroll = (
-    ref: React.RefObject<HTMLElement | null>,
-    section: string
-  ) => {
-    const current = ref.current;
-    if (!current) return;
-  
-    current.scrollIntoView({ behavior: 'smooth' });
-    setMenuOpen(false);
-    setActiveSection(section);
-  };
+  // 3. Fungsi Scroll Tunggal (Efektif & TypeScript Safe)
+  const scrollToSection = useCallback((ref: React.RefObject<HTMLElement | null>, name: string) => {
+    if (ref.current) {
+      const offset = 80; // Sesuaikan dengan tinggi navbar Anda
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = ref.current.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
 
-  const scrollToSection = (elementRef: React.RefObject<HTMLElement>) => {
-    if (elementRef && elementRef.current) {
       window.scrollTo({
-        top: elementRef.current.offsetTop - 80, // Offset untuk navbar
-        behavior: "smooth",
+        top: offsetPosition,
+        behavior: 'smooth'
       });
+      
+      setActiveSection(name);
+      setMenuOpen(false);
     }
-  };
+  }, []);
 
+  // 4. Scroll Spy menggunakan Intersection Observer (Lebih Performa)
   useEffect(() => {
-    const handleScrollEvent = () => {
-      const scrollPos = window.scrollY + 200;
-      for (let i = sectionRefs.length - 1; i >= 0; i--) {
-        const refCurrent = sectionRefs[i].ref.current;
-        if (refCurrent && scrollPos >= refCurrent.offsetTop) {
-          setActiveSection(sectionRefs[i].name);
-          break;
-        }
-      }
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -50% 0px', // Trigger saat section di area tengah layar
+      threshold: 0
     };
-    window.addEventListener('scroll', handleScrollEvent);
-    return () => window.removeEventListener('scroll', handleScrollEvent);
-  }, [sectionRefs]);  
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const section = sectionRefs.find(s => s.ref.current === entry.target);
+          if (section) setActiveSection(section.name);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sectionRefs.forEach((s) => {
+      if (s.ref.current) observer.observe(s.ref.current);
+    });
+
+    return () => observer.disconnect();
+  }, [sectionRefs]);
 
   return (
     <div className="min-h-screen text-slate-800">
       {/* NAVBAR */}
-      <nav className="bg-white shadow-md sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-end items-center">
-          <div className="hidden md:flex gap-6">
+      <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          {/* Logo / Title (Optional) */}
+          <div className="font-black text-emerald-700 tracking-tighter text-xl">
+            PHYTO<span className="text-slate-900">LAB</span>
+          </div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex gap-8">
             {sectionRefs.map((sec) => (
               <button
                 key={sec.name}
-                onClick={() => handleScroll(sec.ref, sec.name)}
-                className={`hover:text-emerald-600 ${
+                onClick={() => scrollToSection(sec.ref, sec.name)}
+                className={`text-sm font-bold transition-all hover:text-emerald-600 ${
                   activeSection === sec.name
-                    ? "text-emerald-600 font-semibold"
-                    : ""
+                    ? "text-emerald-600 relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-emerald-600"
+                    : "text-slate-500"
                 }`}
               >
                 {sec.name}
               </button>
             ))}
           </div>
+
+          {/* Mobile Toggle */}
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="focus:outline-none"
+              className="p-2 text-slate-800 focus:outline-none"
+              aria-label="Toggle Menu"
             >
-              <span className="block w-6 h-0.5 bg-slate-800 mb-1"></span>
-              <span className="block w-6 h-0.5 bg-slate-800 mb-1"></span>
-              <span className="block w-6 h-0.5 bg-slate-800"></span>
+              <div className="w-6 space-y-1.5">
+                <span className={`block h-0.5 bg-current transition-transform ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                <span className={`block h-0.5 bg-current transition-opacity ${menuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block h-0.5 bg-current transition-transform ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+              </div>
             </button>
           </div>
         </div>
-        {menuOpen && (
-          <div className="md:hidden bg-white shadow-inner">
-            <div className="flex flex-col px-6 py-4 gap-4">
-              {sectionRefs.map((sec) => (
-                <button
-                  key={sec.name}
-                  onClick={() => handleScroll(sec.ref, sec.name)}
-                  className={`hover:text-emerald-600 text-left ${
-                    activeSection === sec.name
-                      ? "text-emerald-600 font-semibold"
-                      : ""
-                  }`}
-                >
-                  {sec.name}
-                </button>
-              ))}
-            </div>
+
+        {/* Mobile Menu */}
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? 'max-h-screen border-t border-slate-100' : 'max-h-0'}`}>
+          <div className="flex flex-col px-6 py-6 gap-5 bg-white">
+            {sectionRefs.map((sec) => (
+              <button
+                key={sec.name}
+                onClick={() => scrollToSection(sec.ref, sec.name)}
+                className={`text-left text-lg font-bold transition-colors ${
+                  activeSection === sec.name ? "text-emerald-600" : "text-slate-500"
+                }`}
+              >
+                {sec.name}
+              </button>
+            ))}
           </div>
-        )}
+        </div>
       </nav>
 
       {/* HERO */}
@@ -239,7 +262,7 @@ export default function ResearchLandingPage() {
       </section>
 
       {/* INTRO SECTION - Scientific Landscape */}
-      <section ref={introRef} className="bg-white py-24 px-6">
+      <section ref={introRef} className="bg-white min-h-screen py-24 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header Section (Konsisten dengan Tujuan & Sasaran) */}
           <div className="text-center mb-16 space-y-4">
