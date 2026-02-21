@@ -53,7 +53,7 @@ export default function ResearchLandingPage() {
       name: 'Prof. Dr. Wiwik Susanah Rita, M.Si.',
       position: 'Ketua',
       rank: 'Guru Besar',
-      cv: '/cv/wiwik.pdf',
+      cv: '/team/wiwik/',
       email: 'wiwik@unud.ac.id'
     },
     {
@@ -61,7 +61,7 @@ export default function ResearchLandingPage() {
       name: 'Prof. Dr. I A Raka Astiti Asih, M.Si.',
       position: 'Anggota 1',
       rank: 'Guru Besar',
-      cv: '/cv/raka.pdf',
+      cv: '/team/astiti-asih/',
       email: 'raka@unud.ac.id'
     },
   ]
@@ -462,78 +462,78 @@ export default function ResearchLandingPage() {
 
           <div className="grid md:grid-cols-4 gap-8">
           {teamMembers.map((person, idx) => {
-  const isActive = activeCard === idx;
+              const isActive = activeCard === idx;
 
-  return (
-    <div
-      key={idx}
-      className="group [perspective:1000px]"
-      onClick={() => handleCardClick(idx)}
-    >
-      <div
-        className={`relative h-96 w-full transition-transform duration-700 [transform-style:preserve-3d]
-        ${isActive ? '[transform:rotateY(180deg)]' : ''}
-        md:group-hover:[transform:rotateY(180deg)]`}
-      >
+              return (
+                <div
+                  key={idx}
+                  className="group [perspective:1000px]"
+                  onClick={() => handleCardClick(idx)}
+                >
+                  <div
+                    className={`relative h-96 w-full transition-transform duration-700 [transform-style:preserve-3d]
+                    ${isActive ? '[transform:rotateY(180deg)]' : ''}
+                    md:group-hover:[transform:rotateY(180deg)]`}
+                  >
 
-        {/* FRONT SIDE */}
-        <div className="absolute inset-0 bg-white p-6 rounded-2xl shadow-md text-center [backface-visibility:hidden]">
-          <div className="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-4 border-emerald-100 shadow-md">
-            <img
-              src={person.img}
-              alt={person.name}
-              className="w-full h-full object-cover"
-            />
-          </div>
+                    {/* FRONT SIDE */}
+                    <div className="absolute inset-0 bg-white p-6 rounded-2xl shadow-md text-center [backface-visibility:hidden]">
+                      <div className="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-4 border-emerald-100 shadow-md">
+                        <img
+                          src={person.img}
+                          alt={person.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
 
-          <h3 className="text-lg font-semibold">{person.name}</h3>
-          <p className="text-emerald-600 font-medium">{person.position}</p>
-          <p className="text-sm text-slate-500">{person.rank}</p>
+                      <h3 className="text-lg font-semibold">{person.name}</h3>
+                      <p className="text-emerald-600 font-medium">{person.position}</p>
+                      <p className="text-sm text-slate-500">{person.rank}</p>
 
-          <p className="mt-4 text-xs text-slate-400 md:hidden">
-            Tap to view details
-          </p>
-        </div>
+                      <p className="mt-4 text-xs text-slate-400 md:hidden">
+                        Tap to view details
+                      </p>
+                    </div>
 
-        {/* BACK SIDE */}
-        <div className="absolute inset-0 bg-emerald-600 text-white p-6 rounded-2xl shadow-md flex flex-col justify-center items-center gap-4 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    {/* BACK SIDE */}
+                    <div className="absolute inset-0 bg-emerald-600 text-white p-6 rounded-2xl shadow-md flex flex-col justify-center items-center gap-4 [transform:rotateY(180deg)] [backface-visibility:hidden]">
 
-          <h3 className="text-lg font-semibold text-center">{person.name}</h3>
+                      <h3 className="text-lg font-semibold text-center">{person.name}</h3>
 
-          {/* Show CV */}
-          <a
-            href={person.cv}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="bg-white text-emerald-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition"
-          >
-            Show CV
-          </a>
+                      {/* Show CV */}
+                      <a
+                        href={person.cv}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="bg-white text-emerald-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition"
+                      >
+                        Show CV
+                      </a>
 
-          {/* Contact Me */}
-          <a
-            href={`mailto:${person.email}?subject=Research Collaboration Inquiry`}
-            onClick={(e) => e.stopPropagation()}
-            className="border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-emerald-600 transition"
-          >
-            Contact Me
-          </a>
+                      {/* Contact Me */}
+                      <a
+                        href={`mailto:${person.email}?subject=Research Collaboration Inquiry`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-emerald-600 transition"
+                      >
+                        Contact Me
+                      </a>
 
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setActiveCard(null);
-            }}
-            className="text-xs underline mt-2 md:hidden"
-          >
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-})}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveCard(null);
+                        }}
+                        className="text-xs underline mt-2 md:hidden"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
