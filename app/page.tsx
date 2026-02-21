@@ -61,11 +61,13 @@ export default function ResearchLandingPage() {
     setActiveSection(section);
   };
 
-  const scrollToSection = (elementRef) => {
-    window.scrollTo({
-      top: elementRef.current.offsetTop, // -80 jika Anda punya navbar tetap (fixed)
-      behavior: "smooth",
-    });
+  const scrollToSection = (elementRef: React.RefObject<HTMLElement>) => {
+    if (elementRef && elementRef.current) {
+      window.scrollTo({
+        top: elementRef.current.offsetTop - 80, // Offset untuk navbar
+        behavior: "smooth",
+      });
+    }
   };
 
   useEffect(() => {
@@ -971,11 +973,10 @@ export default function ResearchLandingPage() {
 
                     {/* Button Email (Pop Up Mailto) */}
                     <button
-                     onClick={() => {
-                      const mailtoUrl = `mailto:${member.email}`;
-                      window.open(mailtoUrl, '_self'); // Menggunakan _self agar tidak membuka tab kosong
-                    }}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 rounded-xl text-sm font-bold text-white hover:bg-emerald-700 shadow-sm shadow-emerald-200 transition-all active:scale-95"
+                      onClick={() =>
+                        (window.location.href = `mailto:${member.email}`)
+                      }
+                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 rounded-xl text-sm font-bold text-white hover:bg-emerald-700 shadow-sm shadow-emerald-200 transition-all active:scale-95"
                     >
                       <Mail size={16} />
                       Hubungi Saya
