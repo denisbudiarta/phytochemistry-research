@@ -57,7 +57,7 @@ export default function Navbar() {
   // 3. Fungsi Scroll Tunggal (Efektif & TypeScript Safe)
   const scrollToSection = useCallback((ref: React.RefObject<HTMLElement | null>, name: string) => {
     if (ref.current) {
-      const offset = 80; // Sesuaikan dengan tinggi navbar Anda
+      const offset = 0; // Sesuaikan dengan tinggi navbar Anda
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = ref.current.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -103,14 +103,14 @@ export default function Navbar() {
     <div className="min-h-screen text-slate-800">
       {/* NAVBAR */}
       <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Logo / Title (Optional) */}
-          <div className="font-black text-emerald-700 tracking-tighter text-xl">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          
+          {/* <div className="font-black text-emerald-700 tracking-tighter text-xl">
             PHYTO<span className="text-slate-900">LAB</span>
-          </div>
+          </div> */}
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex gap-8 ml-auto items-center">
             {sectionRefs.map((sec) => (
               <button
                 key={sec.name}
@@ -203,7 +203,7 @@ export default function Navbar() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="space-y-4"
                 >
-                  <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[1.1]">
+                  <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1]">
                     Fitokimia dan Bioaktivitas <br />
                     <span className="text-emerald-600 italic">
                       Bahan Hayati
@@ -446,40 +446,34 @@ export default function Navbar() {
           <div className="divide-y divide-slate-200">
             {[
               {
-                title: "Fitokimia & Bioaktivitas Kesehatan",
-                desc: "Ekstraksi dan isolasi metabolit sekunder dengan aktivitas antimikroba, antikanker, antioksidan, antiinflamasi, dan antidiabetes.",
+                desc: "Ekstraksi dan Pemisahan fitokimia (metabolit sekunder) yang mempunyai bioaktivitas tertentu seperti antimikroba, antikanker, antioksidan, antiinflamasi, antidiabetes, dan sebagainya (bidang Kesehatan).",
                 hoverColor: "group-hover:text-emerald-500",
-                numColor: "group-hover:text-emerald-100",
+                numColor: "group-hover:text-emerald-500",
               },
               {
-                title: "Aplikasi Pertanian & Pangan",
-                desc: "Senyawa bioaktif sebagai pestisida nabati dan penambah cita rasa alami.",
-                hoverColor: "group-hover:text-blue-500",
-                numColor: "group-hover:text-blue-100",
+                desc: "Ekstraksi dan Pemisahan senyawa (metabolit sekunder) yang mempunyai bioaktivitas sebagai pestisida nabati (bidang pertanian), penambah cita rasa (bidang pangan), dan sebagainya.",
+                hoverColor: "group-hover:text-emerald-500",
+                numColor: "group-hover:text-emerald-500",
               },
               {
-                title: "Nanoteknologi Fitokimia",
-                desc: "Peningkatan stabilitas dan efektivitas senyawa bioaktif melalui pendekatan nano.",
-                hoverColor: "group-hover:text-purple-500",
-                numColor: "group-hover:text-purple-100",
+                desc: "Penerapan nanoteknologi untuk menambah keaktifan kandungan senyawa dalam tumbuhan dan melindungi senyawa bioaktif tumbuhan dalam suatu bahan.",
+                hoverColor: "group-hover:text-emerald-500",
+                numColor: "group-hover:text-emerald-500",
               },
               {
-                title: "Identifikasi & Karakterisasi Senyawa",
-                desc: "Penentuan struktur dan karakterisasi senyawa aktif.",
-                hoverColor: "group-hover:text-amber-500",
-                numColor: "group-hover:text-amber-100",
+                desc: "Identifikasi atau penentuan struktur senyawa aktif.",
+                hoverColor: "group-hover:text-emerald-500",
+                numColor: "group-hover:text-emerald-500",
               },
               {
-                title: "Studi Mekanisme Keaktifan",
-                desc: "Pendekatan in vitro, in vivo, dan in silico untuk memahami mekanisme kerja metabolit.",
-                hoverColor: "group-hover:text-rose-500",
-                numColor: "group-hover:text-rose-100",
+                desc: "Studi keaktifan metabolit dan mekanisme melalui pendekatan in vitro, in vivo, dan in silico.",
+                hoverColor: "group-hover:text-emerald-500",
+                numColor: "group-hover:text-emerald-500",
               },
               {
-                title: "Pengembangan Produk Aplikatif",
-                desc: "Formulasi produk obat, skincare, dan pestisida nabati berbasis fitokimia.",
-                hoverColor: "group-hover:text-cyan-500",
-                numColor: "group-hover:text-cyan-100",
+                desc: "Aplikasi fitokimia dalam pembuatan produk bahan obat, skincare, pestisida nabati, dan lain-lain.",
+                hoverColor: "group-hover:text-emerald-500",
+                numColor: "group-hover:text-emerald-500",
               },
             ].map((item, i) => (
               <div
@@ -488,7 +482,7 @@ export default function Navbar() {
               >
                 {/* Nomor Besar di Samping */}
                 <span
-                  className={`text-4xl font-black text-slate-200 transition-colors ${item.numColor}`}
+                  className={`text-4xl font-black text-slate-500 transition-colors ${item.numColor}`}
                 >
                   0{i + 1}
                 </span>
@@ -497,7 +491,6 @@ export default function Navbar() {
                   <h3
                     className={`text-xl font-bold transition-colors ${item.hoverColor}`}
                   >
-                    {item.title}
                   </h3>
                   <p className="text-lg text-slate-600 leading-relaxed group-hover:text-slate-900 transition-colors">
                     {item.desc}
@@ -542,7 +535,7 @@ export default function Navbar() {
                   Visi
                 </h3>
                 <p className="text-xl md:text-2xl font-medium leading-relaxed max-w-3xl mx-auto">
-                  "meningkatkan riset unggulan, baik tingkat nasional maupun
+                  "Meningkatkan riset unggulan, baik tingkat nasional maupun
                   internasional dalam mengungkap potensi bahan hayati lokal
                   melalui pendekatan fitokimia dan bioaktivitas untuk
                   kemandirian obat bahan alam"
