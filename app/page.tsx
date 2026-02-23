@@ -36,7 +36,6 @@ export default function Navbar() {
   const subfieldsRef = useRef<HTMLElement>(null);
   const visionRef = useRef<HTMLElement>(null);
   const objectivesRef = useRef<HTMLElement>(null);
-  const roadmapRef = useRef<HTMLElement>(null);
   const outputRef = useRef<HTMLElement>(null);
   const teamsRef = useRef<HTMLElement>(null);
 
@@ -48,9 +47,8 @@ export default function Navbar() {
     { ref: introRef, name: 'Pendahuluan' },
     { ref: subfieldsRef, name: 'Sub Bidang' },
     { ref: visionRef, name: 'Visi & Misi' },
-    { ref: objectivesRef, name: 'Objective' },
-    { ref: roadmapRef, name: 'Roadmap' },
-    { ref: outputRef, name: 'Luaran' },
+    { ref: objectivesRef, name: 'Tujuan & Sasaran' },
+    { ref: outputRef, name: 'Roadmap & Luaran' },
     { ref: teamsRef, name: 'Our Team' },
   ], []);
 
@@ -266,14 +264,8 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto">
           {/* Header Section (Konsisten dengan Tujuan & Sasaran) */}
           <div className="text-center mb-16 space-y-4">
-            <Badge
-              variant="outline"
-              className="border-emerald-200 text-emerald-700 bg-emerald-50 px-4 py-1"
-            >
-              Fundamental & Inovasi
-            </Badge>
             <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              Lanskap Riset Fitokimia
+              Pendahuluan
             </h2>
             <div className="h-1.5 w-20 bg-emerald-600 mx-auto rounded-full mt-4"></div>
           </div>
@@ -287,9 +279,6 @@ export default function Navbar() {
                   <div className="p-2 bg-emerald-600 rounded-lg text-white">
                     <Lightbulb size={20} />
                   </div>
-                  <CardTitle className="text-2xl font-bold text-slate-800">
-                    Metabolit Sekunder & Bioaktivitas
-                  </CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6 text-slate-600 leading-relaxed">
@@ -308,8 +297,8 @@ export default function Navbar() {
                 <div className="grid md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl border border-slate-100">
                   <div>
                     <h4 className="font-bold text-slate-800 text-sm uppercase mb-3 flex items-center gap-2">
-                      <Target size={16} className="text-emerald-600" /> Spektrum
-                      Penyakit
+                      <Target size={16} className="text-emerald-600" /> 
+                      Spektrum Penyakit Kronis
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {[
@@ -330,8 +319,8 @@ export default function Navbar() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 text-sm uppercase mb-3 flex items-center gap-2">
-                      <Quote size={16} className="text-emerald-600" /> Grup
-                      Senyawa
+                      <Quote size={16} className="text-emerald-600" /> 
+                      Metabolit Sekunder
                     </h4>
                     <p className="text-xs italic text-slate-500">
                       Fenolik, flavonoid, antosianin, terpena, terpenoid,
@@ -434,12 +423,10 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto">
           {/* Header Tetap Simpel */}
           <div className="text-center mb-16 space-y-4">
-            <span className="inline-flex items-center rounded-full border border-emerald-500 bg-white px-4 py-1 text-sm font-medium text-emerald-600">
-              Fokus Riset
-            </span>
             <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              Sub Bidang Penelitian
+              Sub Bidang Kajian
             </h2>
+            <div className="h-1.5 w-20 bg-emerald-600 mx-auto rounded-full mt-4"></div>
           </div>
 
           {/* List Layout Tanpa Card */}
@@ -512,15 +499,10 @@ export default function Navbar() {
 
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="text-center mb-16 space-y-3">
-            <Badge
-              variant="secondary"
-              className="bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-none px-4"
-            >
-              Core Values
-            </Badge>
             <h2 className="text-4xl font-extrabold tracking-tight text-slate-900">
               Visi & Misi
             </h2>
+            <div className="h-1.5 w-20 bg-emerald-600 mx-auto rounded-full mt-4"></div>
           </div>
 
           {/* Section Visi */}
@@ -587,15 +569,11 @@ export default function Navbar() {
       <section ref={objectivesRef} className="bg-slate-50/50 py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <Badge
-              variant="outline"
-              className="border-emerald-200 text-emerald-700 bg-emerald-50 px-4 py-1"
-            >
-              Riset & Pengembangan
-            </Badge>
             <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
               Tujuan & Sasaran Penelitian
             </h2>
+            <div className="h-1.5 w-20 bg-emerald-600 mx-auto rounded-full mt-4"></div>
+
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -662,125 +640,10 @@ export default function Navbar() {
         </div>
       </section>
 
-      {/* ROADMAP */}
-      {/* ROADMAP PENELITIAN - Green Palette Design */}
-      <section ref={roadmapRef} className="bg-slate-50 py-24 px-6 font-sans">
-        <div className="max-w-3xl mx-auto">
-          {/* Header Section */}
-          <div className="text-center mb-16 space-y-4">
-            <Badge
-              variant="outline"
-              className="border-emerald-200 text-emerald-700 bg-emerald-50 px-4 py-1"
-            >
-              Timeline Penelitian
-            </Badge>
-            <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              Roadmap Penelitian & Pengembangan
-            </h2>
-          </div>
-
-          {/* Timeline Container */}
-          <div className="relative border-l-2 border-dashed border-emerald-200 ml-6 space-y-10">
-            {[
-              {
-                year: "2024 - 2028",
-                category: "R & D",
-                title: "Plant Science Research Activities",
-                color: "bg-emerald-700",
-                items: [
-                  "Eksplorasi tanaman dengan bioaktif tertentu",
-                  "Uji bioaktivitas",
-                  "Isolasi dan identifikasi senyawa aktif dari bagian aktif tanaman",
-                ],
-              },
-              {
-                year: "2028 - 2032",
-                category: "Technology",
-                title: "Processing Research Activities",
-                color: "bg-green-600",
-                items: [
-                  "Penerapan teknologi dalam peningkatan keaktifan bahan",
-                  "Penentuan struktur senyawa Tunggal hasil isolasi",
-                ],
-              },
-              {
-                year: "2032 - 2036",
-                category: "Product",
-                title: "Utilization Research Activities",
-                color: "bg-lime-600",
-                items: [
-                  "Pembuatan obat herbal terstandarisasi",
-                  "Pembuatan aroma terapi, kosmetik (krim kecantikan, sabun, sampo, dll)",
-                  "Pembuatan pestisida nabati",
-                ],
-              },
-              {
-                year: "2036 - 2040",
-                category: "Market",
-                title: "Market Research Activities",
-                color: "bg-teal-800",
-                items: ["Pemasaran produk bahan"],
-              },
-            ].map((step, index) => (
-              <div key={index} className="relative pl-10">
-                {/* Timeline Dot Indicator */}
-                <div
-                  className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full ${step.color} outline outline-4 outline-white`}
-                ></div>
-
-                <Card className="border-none shadow-sm overflow-hidden bg-white transition-all hover:shadow-md">
-                  {/* Card Header with Color Palette */}
-                  <div
-                    className={`${step.color} p-4 text-white flex justify-between items-center`}
-                  >
-                    <div className="flex items-center gap-2">
-                      <Badge
-                        variant="secondary"
-                        className="bg-white/20 text-white border-none text-[10px] uppercase font-bold"
-                      >
-                        {step.category}
-                      </Badge>
-                      <h3 className="font-bold text-sm md:text-base tracking-wide">
-                        {step.title}
-                      </h3>
-                    </div>
-                    <span className="opacity-80 text-[10px] font-mono font-bold whitespace-nowrap ml-2">
-                      {step.year}
-                    </span>
-                  </div>
-
-                  {/* Card Content */}
-                  <CardContent className="p-6">
-                    <ul className="space-y-3">
-                      {step.items.map((point, idx) => (
-                        <li key={idx} className="flex gap-3 items-start group">
-                          <div
-                            className={`w-1.5 h-1.5 rounded-full mt-2 shrink-0 ${step.color} group-hover:scale-125 transition-transform`}
-                          />
-                          <span className="text-slate-600 text-sm leading-relaxed">
-                            {point}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* OUTPUT - Innovation Pipeline / Luaran Selection Data */}
+      {/* TIMELINE & LUARAN */}
       <section ref={outputRef} className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <Badge
-              variant="outline"
-              className="border-emerald-200 text-emerald-700 bg-emerald-50 px-4 py-1"
-            >
-              Rencana Strategis 2024 - 2040
-            </Badge>
             <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
               Roadmap & Luaran Penelitian
             </h2>
@@ -926,28 +789,28 @@ export default function Navbar() {
                 role: "Ketua",
                 email: "ketua@institusi.ac.id",
                 image: "/images/wiwik-s.jpeg",
-                cvLink: "/team/wiwik",
+                cvLink: "/team/wiwik-susanah-rita",
               },
               {
-                name: "Prof. Dr. Dra. Wiwik Susanah Rita, M.Si.",
-                role: "Ketua",
+                name: "Prof. Dr. Dra. I A Raka Astiti Asih, M.Si.",
+                role: "Anggota 1",
                 email: "ketua@institusi.ac.id",
-                image: "/images/wiwik-s.jpeg",
-                cvLink: "/team/wiwik",
+                image: "/images/blank.svg",
+                cvLink: "/team/ia-raka-astiti-asih",
               },
               {
-                name: "Prof. Dr. Dra. Wiwik Susanah Rita, M.Si.",
-                role: "Ketua",
+                name: "Dr. Drs. I Wayan Suirta, M.Si.",
+                role: "Anggota 2",
                 email: "ketua@institusi.ac.id",
-                image: "/images/wiwik-s.jpeg",
-                cvLink: "/team/wiwik",
+                image: "/images/suirta.jpeg",
+                cvLink: "/team/i-wayan-suirta",
               },
               {
-                name: "Prof. Dr. Dra. Wiwik Susanah Rita, M.Si.",
-                role: "Ketua",
+                name: "Drs. I Wayan Suarsa, M.Si.",
+                role: "Anggota 3",
                 email: "ketua@institusi.ac.id",
-                image: "/images/wiwik-s.jpeg",
-                cvLink: "/team/wiwik",
+                image: "/images/blank.svg",
+                cvLink: "/team/i-wayan-suarsa",
               },
             ].map((member, index) => (
               <Card
