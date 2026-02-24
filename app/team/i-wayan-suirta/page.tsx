@@ -151,7 +151,7 @@ export default function CV() {
             <div className="w-32 h-40 bg-slate-100 rounded-2xl flex-shrink-0 border-4 border-white shadow-md flex items-center justify-center text-slate-300">
               <img
                 src="/images/suirta.jpeg"
-                alt="Prof. Dr. Dra Ida Ayu Raka Astiti Asih, M.Si"
+                alt="Dr. Drs.I Wayan Suirta, MSi  "
                 className="w-full h-full object-cover"
               />
             </div>
