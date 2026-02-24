@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React from "react";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 
@@ -10,21 +10,22 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 // Import Icons (Lucide React) - Semua ikon yang Anda gunakan dikumpulkan di sini
-import { 
-  FileText, 
-  Mail, 
-  CheckCircle2, 
-  Target, 
-  Microscope, 
-  Settings,   
-  Package,    
+import {
+  FileText,
+  Mail,
+  CheckCircle2,
+  Target,
+  Microscope,
+  Settings,
+  Package,
   ShoppingCart,
-  Quote, 
-  Lightbulb, 
+  Quote,
+  Lightbulb,
   Rocket,
-  Beaker, 
+  Beaker,
   Leaf,
-} from 'lucide-react';
+  Check,
+} from "lucide-react";
 
 interface SectionRef {
   ref: React.RefObject<HTMLElement | null>;
@@ -40,55 +41,79 @@ export default function Navbar() {
   const teamsRef = useRef<HTMLElement>(null);
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('Pendahuluan');
+  const [activeSection, setActiveSection] = useState("Pendahuluan");
+  const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
 
   // 2. Memoize array agar tidak memicu re-render pada useEffect
-  const sectionRefs: SectionRef[] = React.useMemo(() => [
-    { ref: introRef, name: 'Pendahuluan' },
-    { ref: subfieldsRef, name: 'Sub Bidang' },
-    { ref: visionRef, name: 'Visi & Misi' },
-    { ref: objectivesRef, name: 'Tujuan & Sasaran' },
-    { ref: outputRef, name: 'Roadmap & Luaran' },
-    { ref: teamsRef, name: 'Our Team' },
-  ], []);
+  const sectionRefs: SectionRef[] = React.useMemo(
+    () => [
+      { ref: introRef, name: "Pendahuluan" },
+      { ref: subfieldsRef, name: "Sub Bidang" },
+      { ref: visionRef, name: "Visi & Misi" },
+      { ref: objectivesRef, name: "Tujuan & Sasaran" },
+      { ref: outputRef, name: "Roadmap & Luaran" },
+      { ref: teamsRef, name: "Our Team" },
+    ],
+    []
+  );
 
   // 3. Fungsi Scroll Tunggal (Efektif & TypeScript Safe)
-  const scrollToSection = useCallback((ref: React.RefObject<HTMLElement | null>, name: string) => {
-    if (ref.current) {
-      const offset = 0; // Sesuaikan dengan tinggi navbar Anda
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = ref.current.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+  const scrollToSection = useCallback(
+    (ref: React.RefObject<HTMLElement | null>, name: string) => {
+      if (ref.current) {
+        const offset = 0; // Sesuaikan dengan tinggi navbar Anda
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = ref.current.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      
-      setActiveSection(name);
-      setMenuOpen(false);
-    }
-  }, []);
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+
+        setActiveSection(name);
+        setMenuOpen(false);
+      }
+    },
+    []
+  );
+
+  const handleContactClick = (email: string) => {
+    // 1. Salin ke clipboard sebagai backup
+    navigator.clipboard.writeText(email);
+    setCopiedEmail(email);
+
+    // 2. Beri feedback visual selama 2 detik
+    setTimeout(() => setCopiedEmail(null), 2000);
+
+    // 3. Pemicu aplikasi email (window.location lebih aman daripada window.open untuk mailto)
+    window.location.href = `mailto:${email}`;
+  };
 
   // 4. Scroll Spy menggunakan Intersection Observer (Lebih Performa)
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-40% 0px -50% 0px', // Trigger saat section di area tengah layar
-      threshold: 0
+      rootMargin: "-40% 0px -50% 0px", // Trigger saat section di area tengah layar
+      threshold: 0,
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const section = sectionRefs.find(s => s.ref.current === entry.target);
+          const section = sectionRefs.find(
+            (s) => s.ref.current === entry.target
+          );
           if (section) setActiveSection(section.name);
         }
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
     sectionRefs.forEach((s) => {
       if (s.ref.current) observer.observe(s.ref.current);
@@ -102,7 +127,6 @@ export default function Navbar() {
       {/* NAVBAR */}
       <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          
           {/* <div className="font-black text-emerald-700 tracking-tighter text-xl">
             PHYTO<span className="text-slate-900">LAB</span>
           </div> */}
@@ -132,23 +156,41 @@ export default function Navbar() {
               aria-label="Toggle Menu"
             >
               <div className="w-6 space-y-1.5">
-                <span className={`block h-0.5 bg-current transition-transform ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-                <span className={`block h-0.5 bg-current transition-opacity ${menuOpen ? 'opacity-0' : ''}`}></span>
-                <span className={`block h-0.5 bg-current transition-transform ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                <span
+                  className={`block h-0.5 bg-current transition-transform ${
+                    menuOpen ? "rotate-45 translate-y-2" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`block h-0.5 bg-current transition-opacity ${
+                    menuOpen ? "opacity-0" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`block h-0.5 bg-current transition-transform ${
+                    menuOpen ? "-rotate-45 -translate-y-2" : ""
+                  }`}
+                ></span>
               </div>
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? 'max-h-screen border-t border-slate-100' : 'max-h-0'}`}>
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            menuOpen ? "max-h-screen border-t border-slate-100" : "max-h-0"
+          }`}
+        >
           <div className="flex flex-col px-6 py-6 gap-5 bg-white">
             {sectionRefs.map((sec) => (
               <button
                 key={sec.name}
                 onClick={() => scrollToSection(sec.ref, sec.name)}
                 className={`text-left text-lg font-bold transition-colors ${
-                  activeSection === sec.name ? "text-emerald-600" : "text-slate-500"
+                  activeSection === sec.name
+                    ? "text-emerald-600"
+                    : "text-slate-500"
                 }`}
               >
                 {sec.name}
@@ -247,7 +289,7 @@ export default function Navbar() {
                   className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6"
                 >
                   <Button
-                    onClick={() => scrollToSection(introRef, 'Pendahuluan')}
+                    onClick={() => scrollToSection(introRef, "Pendahuluan")}
                     className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-6 text-lg font-bold rounded-2xl shadow-lg shadow-emerald-200 transition-all active:scale-95"
                   >
                     Jelajahi Riset
@@ -297,7 +339,7 @@ export default function Navbar() {
                 <div className="grid md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl border border-slate-100">
                   <div>
                     <h4 className="font-bold text-slate-800 text-sm uppercase mb-3 flex items-center gap-2">
-                      <Target size={16} className="text-emerald-600" /> 
+                      <Target size={16} className="text-emerald-600" />
                       Spektrum Penyakit Kronis
                     </h4>
                     <div className="flex flex-wrap gap-2">
@@ -319,7 +361,7 @@ export default function Navbar() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 text-sm uppercase mb-3 flex items-center gap-2">
-                      <Quote size={16} className="text-emerald-600" /> 
+                      <Quote size={16} className="text-emerald-600" />
                       Metabolit Sekunder
                     </h4>
                     <p className="text-xs italic text-slate-500">
@@ -477,8 +519,7 @@ export default function Navbar() {
                 <div className="space-y-1">
                   <h3
                     className={`text-xl font-bold transition-colors ${item.hoverColor}`}
-                  >
-                  </h3>
+                  ></h3>
                   <p className="text-lg text-slate-600 leading-relaxed group-hover:text-slate-900 transition-colors">
                     {item.desc}
                   </p>
@@ -573,7 +614,6 @@ export default function Navbar() {
               Tujuan & Sasaran Penelitian
             </h2>
             <div className="h-1.5 w-20 bg-emerald-600 mx-auto rounded-full mt-4"></div>
-
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -787,29 +827,29 @@ export default function Navbar() {
               {
                 name: "Prof. Dr. Dra. Wiwik Susanah Rita, M.Si.",
                 role: "Ketua",
-                email: "ketua@institusi.ac.id",
+                email: "susanah.rita@unud.ac.id",
                 image: "/images/wiwik-s.jpeg",
                 cvLink: "/team/wiwik-susanah-rita",
               },
               {
                 name: "Prof. Dr. Dra. I A Raka Astiti Asih, M.Si.",
                 role: "Anggota 1",
-                email: "ketua@institusi.ac.id",
-                image: "/images/blank.svg",
+                email: "astiti_asih@unud.ac.id",
+                image: "/images/ia-raka.jpeg",
                 cvLink: "/team/ia-raka-astiti-asih",
               },
               {
                 name: "Dr. Drs. I Wayan Suirta, M.Si.",
                 role: "Anggota 2",
-                email: "ketua@institusi.ac.id",
+                email: "wayansuirta@unud.ac.id",
                 image: "/images/suirta.jpeg",
                 cvLink: "/team/i-wayan-suirta",
               },
               {
                 name: "Drs. I Wayan Suarsa, M.Si.",
                 role: "Anggota 3",
-                email: "ketua@institusi.ac.id",
-                image: "/images/blank.svg",
+                email: "wayansuarsa@unud.ac.id",
+                image: "/images/suarsa.jpeg",
                 cvLink: "/team/i-wayan-suarsa",
               },
             ].map((member, index) => (
@@ -852,13 +892,25 @@ export default function Navbar() {
 
                     {/* Button Email (Pop Up Mailto) */}
                     <button
-                      onClick={() =>
-                        (window.location.href = `mailto:${member.email}`)
-                      }
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 rounded-xl text-sm font-bold text-white hover:bg-emerald-700 shadow-sm shadow-emerald-200 transition-all active:scale-95"
+                      onClick={() => handleContactClick(member.email)}
+                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95 shadow-sm 
+    ${
+      copiedEmail === member.email
+        ? "bg-blue-600" // Warna berubah saat berhasil copy
+        : "bg-emerald-600 hover:bg-emerald-700 shadow-emerald-200"
+    }`}
                     >
-                      <Mail size={16} />
-                      Hubungi Saya
+                      {copiedEmail === member.email ? (
+                        <>
+                          <Check size={16} />
+                          Email Tersalin!
+                        </>
+                      ) : (
+                        <>
+                          <Mail size={16} />
+                          Hubungi Saya
+                        </>
+                      )}
                     </button>
                   </div>
                 </CardContent>

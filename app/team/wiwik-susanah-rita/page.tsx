@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React from "react";
 
 export default function CVAstitiAsih() {
   // Data Mata Kuliah dipisahkan di sini agar mudah diupdate
@@ -12,8 +14,7 @@ export default function CVAstitiAsih() {
     "Biopestisida (S2)",
     "Bioaktivitas Bahan Alam Hayati (S2)",
     "Uji Bioaktivitas (S1)",
-    "Bioenergi (S2)"
-    
+    "Bioenergi (S2)",
   ];
 
   const riwayatPendidikan = [
@@ -22,41 +23,297 @@ export default function CVAstitiAsih() {
       gelar: "Biopestisida",
       kampus: "Universitas Udayana",
       tahun: "2010 — 2014",
-      isLatest: true 
+      isLatest: true,
     },
     {
       jenjang: "S2",
       gelar: "Kimia Organik",
-      kampus: "ITB",
+      kampus: "Institut Teknologi Bandung",
       tahun: "1996 — 1998",
-      isLatest: false
+      isLatest: false,
     },
     {
       jenjang: "S1",
       gelar: "Kimia Organik",
       kampus: "Universitas Airlangga",
       tahun: "1986-1990",
-      isLatest: false
-    }
+      isLatest: false,
+    },
   ];
 
   const penulisanArtikel = [
     {
       volume: "Vol. 5, No. 03; 2020",
       judul: "Antibacterial activity and antioxidant capacity of selected Local banana peel (Musa sp.) Methanol extracts cultivated in bali",
-      jurnal: "International Journal of Agriculture, Environment and Bioresearch (IJAEB 2020) ",
+      jurnal: "International Journal of Agriculture, Environment and Bioresearch (IJAEB 2020)",
     },
     {
-      volume: "Volume Artikel",
-      judul: "Judul Artikel",
-      jurnal: "Nama Jurnal",
-    }
+      volume: "Volume 8 Nomor 1, Mei 2020",
+      judul: "Aktivitas antijamur ekstrak n-butanol dari daun Trembesi (Albizia saman (Jacq.) Merr) terhadap jamur Candida albicans dan penentuan total flavonoid",
+      jurnal: "Cakra Kimia (Indonesian E-Journal of Applied Chemistry)",
+    },
+    {
+      volume: "Volume 8 Nomor 2, Mei 2020",
+      judul: "Aktivitas Antibakteri Ekstrak Metanol Kulit Pisang Pecah Seribu (Musa x Paradisiaca L.) terhadap Bakteri Staphylococcus aureus dan Escherichia coli",
+      jurnal: "Cakra Kimia (Indonesian E-Journal of Applied Chemistry)",
+    },
+    {
+      volume: "Volume 28 Nomer 3, July 2021",
+      judul: "Antibacterial Activity of Flavonoids from Ethyl Acetate Extract of Milk Banana Peel (Musa x paradisiaca L.)",
+      jurnal: "Hayati Journal of Biosciences (Scopus Q2)",
+    },
+    {
+      volume: "Volume 15 Nomer 2, Juli 2021",
+      judul: "Uji Aktivitas Antibakteri Ekstrak Metanol Kulit Pisang Hijau Lumut (Musa x paradisiaca L.) terhadap Bakteri Staphylococcus aureus dan Escherichia coli Serta Identifikasi Golongan Senyawa Metabolit Sekunder",
+      jurnal: "Jurnal Kimia",
+    },
+    {
+      volume: "Volume 15, no. 1, halaman 124-131, 2022",
+      judul: "Cervical anticancer activities of Annona squamosa Linn. Leaf isolate",
+      jurnal: "Veterinary World (Scopus Q1)",
+    },
+    {
+      volume: "Volume 2022",
+      judul: "Antifungal Activity of Phenolic Compounds from Samanea saman Leaves Against Stem Rot Disease on Dragon Fruits Caused by Fusarium Solani",
+      jurnal: "PGPR 2021 First Asian PGPR Indonesian Chapter International e-Conference 2021 KnE Life Sciences Knowledge E",
+    },
+    {
+      volume: "Volume 6, Issue 2, 2022: 6-12",
+      judul: "Degradation of dying industry wastewater with natural zeolite-TiO2/ZnO photocatalyst",
+      jurnal: "International Journal of Chemistry Studies",
+    },
+    {
+      volume: "Vol. 17, No. 2, April, 2022, pp. 319-323",
+      judul: "Antioxidant Activity of Flavonoid Glycoside Extract of Solanum betaceum on the Kidney of Wistar Rats",
+      jurnal: "International Journal of Design & Nature and Ecodynamics (Scopus Q2)",
+    },
+    {
+      volume: "1177, 012050, 2023",
+      judul: "Antibacterial Efficacy of Susu Banana (Musa paradisiaca L.) Peel Methanol Extract and The Total Contents of Flavonoid and Phenolic Compounds",
+      jurnal: "IOP Conference Series: Earth and Environmental Science (Scopus)",
+    },
+    {
+      volume: "Vo. 22, No. 04, Juli 2023, 177-182",
+      judul: "Sabun Mandi Antioksidan dari Beras Merah dan Virgin Coconut Oil (VCO)",
+      jurnal: "Buletin Udayana Mengabdi",
+    },
+    {
+      volume: "Vo. 22, No. 02, Maret 2023, pp. 76-81",
+      judul: "Pemanfaatan Kulit Pisang Hijau Lumut (Musa x paradisiaca L.) sebagai Bahan Aktif Masker Peel Off dan Sabun Mandi Antibakteri",
+      jurnal: "Buletin Udayana Mengabdi",
+    },
+    {
+      volume: "15(3): 278-287, 2023",
+      judul: "Antibacterial Activity and Characterization of Chitosan Nanoparticles Prepared from Hijau Lumut Banana (Musa paradisiaca L.) Peel Ethyl Acetate Extract",
+      jurnal: "Nano Biomedicine and Engineering (Scopus Q3)",
+    },
+    {
+      volume: "18 (1): 51-60, 2024",
+      judul: "Aktivitas Antibakteri Ekstrak n-Heksana Kulit Pisang Hijau Lumut (Musa × paradisiaca L.) serta Identifikasi Senyawanya",
+      jurnal: "Jurnal Kimia (Journal of Chemistry)",
+    },
+    {
+      volume: "16(1): 420-426, 2024",
+      judul: "Active compounds of Michelia champaca bark extract against Curvularia verruculosa fungi causing leaf spot disease in rice (Oryza sativa L.)",
+      jurnal: "Jounal of Applied and Natural Science (Scopus Q4)",
+    },
+    {
+      volume: "3071, 020003 (2024)",
+      judul: "The toxic compounds from citrus parasite (Scurrula ferruginea (Jack) Danser.)",
+      jurnal: "AIP Conference Proceeding (Scopus)",
+    },
+    {
+      volume: "Volume 13; Issue 7; July 2024; Page No.3177-3182, 2024",
+      judul: "Esterification Reaction and Antioxidant Activity of Xanthone Derivative From Mangosteen Peel (Garcinia mangostana L.)",
+      jurnal: "International Journal of Current Advanced Research",
+    },
+    {
+      volume: "Volume: 11 Issue: 4, 23-30, 2024",
+      judul: "Antioxidant Activity of Herbal Soap Formulations Extract Gaharu Leaves (Gyrinops Versteegii)",
+      jurnal: "European Journal of Biomedical AND Pharmaceutical sciences",
+    },
+    {
+      volume: "Volume:19 Issue:1, 96-104, 2025",
+      judul: "Fitoremediasi Tanah Tercemar Tembaga (Cu) Oleh Tanaman Keladi Hias (Caladium Bicolor) Dan Lidah Mertua (Sansevieria Trifasciata)",
+      jurnal: "Jurnal Kimia (Journal of Chemistry)",
+    },
+    {
+      volume: "Volume:19 Issue:2, 217-224, 2025",
+      judul: "Aktivitas Antibakteri dan Kandungan Senyawa Ekstrak n-Heksana Kulit Pisang Pecah Seribu (Musa × paradisiaca L.)",
+      jurnal: "Jurnal Kimia (Journal of Chemistry)",
+    },
+    {
+      volume: "Volume:11 Issue:1, 540-557, 2026",
+      judul: "Formulation And Characterization Of Nanoemulsion from Cinnamon Bark Essential Oil (Cinnamomum Burmanii)",
+      jurnal: "World Journal of Pharmacy and Pharmaceutical Sciences",
+    },
   ];
-  
+
+  const presenter = [
+    {
+      acara: "International Seminar on Chemistry (ISoC) 2020",
+      judulArtikel: "Antibacterial Activity of Flavonoids from Ethyl Acetate Extract of Milk Banana Peel (Musa x paradisiaca L.)",
+      waktuTempat: "Surabaya, 31st August 2020",
+    },
+    {
+      acara: "1st Asian PGPR Indonesia Chapter International E-conference",
+      judulArtikel: "Antifungal Activity of Phenolic Compounds from Samanea saman (Jacq.) Merr) Leaves against Stem Rot Disease on Dragon Fruits Caused by Fusarium solani",
+      waktuTempat: "Bali, 28th August 2021",
+    },
+    {
+      acara: "Seminar Nasional Sains dan Teknologi (SENASTEK)",
+      judulArtikel: "Senyawa Antibakteri dalam Ekstrak Etilasetat Kulit Pisang Hijau Lumut (Musa paradisiaca L.)",
+      waktuTempat: "Bali, 24-26 November 2021",
+    },
+    {
+      acara: "International Seminar on Chemistry (ISoC) 2022",
+      judulArtikel: "The Toxic Compounds from Citrus Parasite (Scurrula ferruginea (Jack) Danser)",
+      waktuTempat: "Surabaya, 12-13th October 2022",
+    },
+    {
+      acara: "Science and Technology International Conference (STIC) 2022",
+      judulArtikel: "Flavonoid from Chloroform Extract of Samanea saman Jacq. Leaves as an Inhibitor of The Growth of Fusarium solani, The Cause of Dragon Fruit Stem Rot Disease",
+      waktuTempat: "Bali, 16-17 November 2022",
+    },
+    {
+      acara: "Senastek IX dan Senasdimas I",
+      judulArtikel: "Masker Peel Off dan Sabun Mandi Antibakteri dengan Bahan Aktif Kulit Pisang Hijau Lumut (Musa x paradisiaca L.)",
+      waktuTempat: "Bali, 29 November-1 Desember 2022",
+    },
+    {
+      acara: "International Conference on Sustainable Agriculture, Food and Energi (SAFE) 2023",
+      judulArtikel: "Flavonoid from Chloroform Extract of Samanea saman Jacq. Leaves as an Inhibitor of The Growth of Fusarium solani, The Cause of Dragon Fruit Stem Rot Disease",
+      waktuTempat: "May 28-29, 2023, Chiang Mai, Thailand",
+    },
+    {
+      acara: "International Congress on Pure and Applied Chemistry (ICPAC) 2023",
+      judulArtikel: "Antibacterial Compounds from Ethyl Acetate Extract of Hijau Lumut Banana (Musa x paradisiaca L.) Peels",
+      waktuTempat: "12-17 September 2023, Bali",
+    },
+    {
+      acara: "Senastek X & Senasdimas II 2023",
+      judulArtikel: "Pengembangan Produk Nano-Kitosan Ekstrak Kulit Pisang Hijau Lumut (Musa x paradisiaca L.) sebagai Produk Krim Antijerawat dan Identifikasi Senyawa Aktifnya",
+      waktuTempat: "7-9 November 2023, Bali",
+    },
+    {
+      acara: "Senastek X & Senasdimas II 2023",
+      judulArtikel: "Pelatihan Pembuatan Sabun Antiseptik Alami dengan Bahan Aktif Ekstrak Kulit Pisang (Musa x Paradisiaca) dan Gel Lidah Buaya (Aloe vera) di Desa Selumbung Kecamatan Manggis, Kabupaten Karangasem Bali",
+      waktuTempat: "7-9 November 2023, Bali",
+    },
+    {
+      acara: "The Science and Technology International Conference (STIC) 2023",
+      judulArtikel: "Preparation and Characterization of Nano-Chitosan from Hijau Lumut Banana (Musa x paradisiaca L.) Peel Ethanol Extract and Their Antibacterial Activity Against Propionibacterium acnes",
+      waktuTempat: "21-22 November 2023, Bali",
+    },
+    {
+      acara: "International Conference on Recent Advances in Bio-Nano Composites for Enhancing Human Health",
+      judulArtikel: "Anticancer Bioactive Molecules from Indonesian Medicinal plants",
+      waktuTempat: "8-9 January 2024, Gulbarga University, Kalaburagi, Karnataka, India",
+    },
+    {
+      acara: "International Conference of The Indonesian Chemical Society (Icics) 2024",
+      judulArtikel: "Anticancer Compounds from Some Indonesian Medicinal plants",
+      waktuTempat: "24 Oktober 2024, Bali",
+    },
+    {
+      acara: "SENASTEK XI 2024",
+      judulArtikel: "Aktivitas Antikanker Rimpang Jeringau (Acorus calamus L.) terhadap Sel Hela, Sel Penyebab Kanker Serviks",
+      waktuTempat: "29-30 Oktober 2024, Bali",
+    },
+    {
+      acara: "The 6th International on Chemistry (ISC)",
+      judulArtikel: "Antibacterial Compounds from Ethyl Acetate Extract of Hijau Lumut Banana (Musa x Paradisiaca L.) Peels",
+      waktuTempat: "8-9 May 2025, Bali",
+    },
+    {
+      acara: "SENASTEK XII 2025",
+      judulArtikel: "Sabun Padat Antiacne dengan Bahan Aktif Kombinasi Rumput Laut (Eucheuma Cottonii) dan Kulit Pisang Hijau Lumut (Musa X paradisiaca L.)",
+      waktuTempat: "26-27 November 2025",
+    },
+    {
+      acara: "SENASTEK XII 2025",
+      judulArtikel: "Aktivitas Antikanker Payudara Kandungan Senyawa dalam Ekstrak Etilasetat Kulit Pisang Pecah (Musa x paradisiaca), Studi In Vitro dan In Silico",
+      waktuTempat: "26-27 November 2025",
+    },
+    {
+      acara: "The 4th Science and Technology International Conference (STIC) 2025",
+      judulArtikel: "Toxicity Assay and Identification of Active Compounds in Pecah Banana Peel Extract (Musa x paradisiaca L.)",
+      waktuTempat: "27-28 Oktober 2025",
+    },
+  ];
+
+  const hki = [
+    {
+      tahun: "2018",
+      judul: "Ekstrak buah Momordica charantia sebagai penurun kadar glukosa",
+      jenis: "Paten",
+      noIDP: "IDP: 000053073",
+    },
+    {
+      tahun: "2023",
+      judul: "Ekstrak metanol daun srikaya (Annona squamosa linn) sebagai bahan antikanker",
+      jenis: "Paten Sederhana",
+      noIDP: "1DS000006515",
+    },
+    {
+      tahun: "2023",
+      judul: "Cara Pembuatan Sabun Antiseptik dengan Bahan Aktif Kulit Pisang dan Gel Lidah Buaya",
+      jenis: "HKI, Karya Rekaman Video",
+      noIDP: "000550859",
+    },
+  ];
+
+  const buku = [
+     {
+    tahun: "2022",
+    judul: "Analisis Metabolit Primer dan Sekunder",
+    jenis: "Buku Ajar",
+    halaman: "138 halaman",
+  },
+  {
+    tahun: "2024",
+    judul: "Pengendali Hayati Agen Pengendali Hayati untuk Beberapa Patogen",
+    jenis: "Buku Referensi",
+    halaman: "76 halaman",
+  },
+  {
+    tahun: "2024",
+    judul: "Kimia Bahan Alam",
+    jenis: "Buku Referensi",
+    halaman: "159 halaman",
+  },
+  {
+    tahun: "2025",
+    judul: "Nanopartikel Daun Sembung (Blumea balsamifera L.) Sebagai Anti Diabetes Mellitus",
+    jenis: "Buku Referensi",
+    halaman: "87 halaman",
+  },
+  ];
+
   return (
     <div className="min-h-screen bg-[#f8fafc] py-12 px-4 font-sans antialiased text-slate-900">
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="bg-white rounded-[3rem] shadow-sm border border-slate-100 p-8 md:p-12 relative overflow-hidden">
+          <button
+            onClick={() => window.history.back()}
+            className="absolute top-6 left-8 flex items-center gap-2 text-slate-400 hover:text-emerald-600 transition-colors font-bold text-xs uppercase tracking-widest group"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="group-hover:-translate-x-1 transition-transform"
+            >
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+            Back
+          </button>
           <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full -mr-16 -mt-16"></div>
           <div className="relative flex flex-col md:flex-row items-center gap-8">
             <div className="w-32 h-40 bg-slate-100 rounded-2xl flex-shrink-0 border-4 border-white shadow-md flex items-center justify-center text-slate-300">
@@ -96,7 +353,7 @@ export default function CVAstitiAsih() {
                     NIP
                   </label>
                   <p className="font-bold text-slate-700 uppercase">
-                  196903231992032001
+                    196903231992032001
                   </p>
                 </div>
                 <div>
@@ -112,7 +369,7 @@ export default function CVAstitiAsih() {
                     Tempat, Tanggal Lahir
                   </label>
                   <p className="font-bold text-slate-700 uppercase">
-                  Gresik, 23 Maret 1969
+                    Gresik, 23 Maret 1969
                   </p>
                 </div>
                 <div>
@@ -128,18 +385,29 @@ export default function CVAstitiAsih() {
                     Alamat Rumah
                   </label>
                   <p className="font-bold text-slate-700 uppercase">
-                  Jl. Patih Nambi IA Perum Graha Sepa Nambi I/27  Denpasar
+                    Jl. Patih Nambi IA Perum Graha Sepa Nambi I/27 Denpasar
                   </p>
                 </div>
               </div>
             </section>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <section className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm border border-slate-100">
+              <section className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm border border-slate-100">
                 <h2 className="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
                   <span className="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                      <path d="M6 12v5c3 3 9 3 12 0v-5" />
                     </svg>
                   </span>
                   Riwayat Pendidikan
@@ -148,14 +416,30 @@ export default function CVAstitiAsih() {
                   {riwayatPendidikan.map((edu, index) => (
                     <div key={index} className="relative pl-12 group">
                       {/* Badge Bulat S1/S2/S3 */}
-                      <div className={`absolute left-0 top-1 w-10 h-10 rounded-full bg-white border-4 shadow-sm z-10 flex items-center justify-center font-black text-[10px] 
-                        ${edu.isLatest ? 'border-emerald-600 text-emerald-600' : 'border-slate-200 text-slate-400'}`}>
+                      <div
+                        className={`absolute left-0 top-1 w-10 h-10 rounded-full bg-white border-4 shadow-sm z-10 flex items-center justify-center font-black text-[10px] 
+                        ${
+                          edu.isLatest
+                            ? "border-emerald-600 text-emerald-600"
+                            : "border-slate-200 text-slate-400"
+                        }`}
+                      >
                         {edu.jenjang}
                       </div>
-                      
+
                       {/* Konten Pendidikan */}
-                      <div className={`p-5 rounded-2xl transition-colors ${edu.isLatest ? 'bg-slate-50 group-hover:bg-emerald-50' : 'bg-white border border-slate-100 group-hover:bg-slate-50'}`}>
-                        <span className={`text-[10px] font-black uppercase tracking-widest ${edu.isLatest ? 'text-emerald-600' : 'text-slate-400'}`}>
+                      <div
+                        className={`p-5 rounded-2xl transition-colors ${
+                          edu.isLatest
+                            ? "bg-slate-50 group-hover:bg-emerald-50"
+                            : "bg-white border border-slate-100 group-hover:bg-slate-50"
+                        }`}
+                      >
+                        <span
+                          className={`text-[10px] font-black uppercase tracking-widest ${
+                            edu.isLatest ? "text-emerald-600" : "text-slate-400"
+                          }`}
+                        >
                           {edu.tahun}
                         </span>
                         <h3 className="font-bold text-slate-800 text-lg leading-tight mt-1">
@@ -230,15 +514,14 @@ export default function CVAstitiAsih() {
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
                   </div>
-                  <div className='space-y-2'>
-                  <p className="text-sm font-bold truncate">
-                  wiwiksr@yahoo.com;
-                  </p>
-                  <p className="text-sm font-bold truncate">
-                  susanah.rita@unud.ac.id 
-                  </p>
+                  <div className="space-y-2">
+                    <p className="text-sm font-bold truncate">
+                      wiwiksr@yahoo.com;
+                    </p>
+                    <p className="text-sm font-bold truncate">
+                      susanah.rita@unud.ac.id
+                    </p>
                   </div>
-                  
                 </div>
               </div>
             </section>
@@ -309,10 +592,19 @@ export default function CVAstitiAsih() {
                     SINTA ID
                   </p>
                   <div className="bg-slate-50 py-3 rounded-2xl border border-slate-100 inline-block px-8 text-xl font-black text-emerald-600 tracking-wider">
-                    5982631
+                    -
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-4 gap-4">
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
+                    <p className="text-[9px] font-black text-slate-400 uppercase mb-1">
+                      Sinta
+                    </p>
+                    <p className="text-1xl font-black text-slate-700">-</p>
+                    <p className="text-[8px] font-bold text-slate-400 mt-1 uppercase">
+                      H-Index
+                    </p>
+                  </div>
                   <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                     <p className="text-[9px] font-black text-slate-400 uppercase mb-1">
                       Scholar
@@ -326,7 +618,16 @@ export default function CVAstitiAsih() {
                     <p className="text-[9px] font-black text-slate-400 uppercase mb-1">
                       Scopus
                     </p>
-                    <p className="text-2xl font-black text-slate-700">4</p>
+                    <p className="text-2xl font-black text-slate-700">6</p>
+                    <p className="text-[8px] font-bold text-slate-400 mt-1 uppercase">
+                      H-Index
+                    </p>
+                  </div>
+                  <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
+                    <p className="text-[9px] font-black text-slate-400 uppercase mb-1">
+                      Wos
+                    </p>
+                    <p className="text-2xl font-black text-slate-700">2</p>
                     <p className="text-[8px] font-bold text-slate-400 mt-1 uppercase">
                       H-Index
                     </p>
@@ -338,50 +639,50 @@ export default function CVAstitiAsih() {
         </div>
 
         <div className="grid space-y-6">
-        <section className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm border border-slate-100">
-          <h2 className="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
-            <span className="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 2v8" />
-                <path d="m16 6-4 4-4-4" />
-                <path d="M12 22v-8" />
-                <path d="m8 18 4-4 4 4" />
-              </svg>
-            </span>
-            Pengalaman Penulisan Artikel (5 Tahun Terakhir)
-          </h2>
+          <section className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm border border-slate-100">
+            <h2 className="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
+              <span className="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 2v8" />
+                  <path d="m16 6-4 4-4-4" />
+                  <path d="M12 22v-8" />
+                  <path d="m8 18 4-4 4 4" />
+                </svg>
+              </span>
+              Pengalaman Penulisan Artikel (5 Tahun Terakhir)
+            </h2>
 
-          <div className="grid gap-4">
-            {penulisanArtikel.map((riset, index) => (
-              <div 
-                key={index} 
-                className="p-6 rounded-3xl border border-slate-100 bg-slate-50/50 flex justify-between items-start gap-4 hover:border-emerald-200 hover:bg-white transition-all duration-300 group"
-              >
-                <div className="space-y-1">
-                  <h4 className="font-bold text-slate-800 leading-snug group-hover:text-emerald-700 transition-colors">
-                    {riset.judul}
-                  </h4>
-                  <p className="text-xs text-emerald-600 font-bold uppercase tracking-tight">
-                    {riset.jurnal}
-                  </p>
+            <div className="grid gap-4">
+              {penulisanArtikel.map((riset, index) => (
+                <div
+                  key={index}
+                  className="p-6 rounded-3xl border border-slate-100 bg-slate-50/50 flex justify-between items-start gap-4 hover:border-emerald-200 hover:bg-white transition-all duration-300 group"
+                >
+                  <div className="space-y-1">
+                    <h4 className="font-bold text-slate-800 leading-snug group-hover:text-emerald-700 transition-colors">
+                      {riset.judul}
+                    </h4>
+                    <p className="text-xs text-emerald-600 font-bold uppercase tracking-tight">
+                      {riset.jurnal}
+                    </p>
+                  </div>
+                  <span className="px-3 py-1 bg-white border border-slate-200 rounded-full text-[10px] font-black text-slate-500 shadow-sm whitespace-nowrap">
+                    {riset.volume}
+                  </span>
                 </div>
-                <span className="px-3 py-1 bg-white border border-slate-200 rounded-full text-[10px] font-black text-slate-500 shadow-sm whitespace-nowrap">
-                  {riset.volume}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
 
           <section className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm border border-slate-100">
             <h2 className="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
@@ -407,16 +708,64 @@ export default function CVAstitiAsih() {
             <div className="space-y-4">
               {[
                 {
-                  year: 2023,
-                  title: "Judul",
-                  source: "Sumber Pendanaan",
-                  amount: "Nominal Pendanaan",
+                  year: 2020,
+                  title: "Aktivitas antikanker serviks ekstrak dan isolat daun Srikaya (Annnona squamasa Linn) serta identifikasi senyawa aktifnya",
+                  source: "Sumber : Penelitian Invensi Udayana",
+                  amount: "Jumlah : 125 Juta",
+                },
+                {
+                  year: 2021,
+                  title: "Aktivitas Antibakteri Nanopartikel-Ekstrak Kulit Pisang Hijau Lumut (Musa x paradisiaca L.) terhadap Staphylococcus aureus dan Escherichia coli",
+                  source: "Sumber : Penelitian Unggulan Udayana",
+                  amount: "Jumlah : 37 Juta",
+                },
+                {
+                  year: 2021,
+                  title: "Aktivitas antioksidan ekstrak glikosida Flavonoid terong belanda (solanum betaceum Cav) pada ginjal tikus wistar dengan aktivitas fisik maksimal (Tahun ke-2)",
+                  source: "Sumber : Penelitian Unggulan Udayana",
+                  amount: "Jumlah : 50 Juta",
+                },
+                {
+                  year: 2021,
+                  title: "Aktivitas antikanker serviks ekstrak dan isolat daun Srikaya (Annnona squamasa Linn) serta identifikasi senyawa aktifnya (tahun ke-2)",
+                  source: "Sumber : Penelitian Invensi Udayana",
+                  amount: "Jumlah : 131,3 Juta",
                 },
                 {
                   year: 2022,
-                  title: "Judul",
-                  source: "Sumber Pendanaan",
-                  amount: "Nominal Pendanaan",
+                  title: "Senyawa Aktif dan Aktivitas Fungisida Ekstrak Kulit Kayu Cempaka Kuning (Michelia champaca) Terhadap Jamur Curvularia verruculosa Penyebab Penyakit Bercak Daun Pada Tanaman Padi (Oryza sativa L.)",
+                  source: "Sumber : PUPS",
+                  amount: "Jumlah : 25 Juta",
+                },
+                {
+                  year: 2023,
+                  title: "Pengembangan Produk Nano-Kitosan Ekstrak Kulit Pisang Hijau Lumut (Musa x paradisiaca L.) sebagai Produk Krim Antijerawat dan Identifikasi Senyawa Aktifnya",
+                  source: "Sumber : Penelitian Invensi Udayana",
+                  amount: "Jumlah : 99,25 Juta",
+                },
+                {
+                  year: 2024,
+                  title: "Aktivitas Antikanker Rimpang Jeringau (Acorus calamus L.) terhadap Sel Hela, Sel Penyebab Kanker Serviks",
+                  source: "Sumber : Penelitian Unggulan Udayana",
+                  amount: "Jumlah : 58,5 Juta",
+                },
+                {
+                  year: 2025,
+                  title: "Aktivitas Antikanker Payudara Kandungan Senyawa dalam Ekstrak Etilasetat Kulit Pisang Pecah (Musa x paradisiaca), Studi In vitro dan In silico",
+                  source: "Sumber : Senior Academic Research",
+                  amount: "Jumlah : 44,67 Juta",
+                },
+                {
+                  year: 2025,
+                  title: "Formulasi dan Aplikasi Produk Biokontrol Streptomyces Berbasis Nanopartikel Kitosan sebagai Agen Protektan Patogen Busuk pada Kentang (Solanum tuberosum)",
+                  source: "Sumber : Senior Academic Research",
+                  amount: "Jumlah : 44,33 Juta",
+                },
+                {
+                  year: 2025,
+                  title: "Sabun Padat Antiacne dengan Bahan Aktif Kombinasi Rumput laut (Eucheuma cottonii) dan kulit pisang hijau lumut (Musa x paradisiaca L.)",
+                  source: "Sumber : PAKPRI",
+                  amount: "Jumlah : 49,67 Juta",
                 },
               ].map((pengalaman, index) => (
                 <div
@@ -427,9 +776,9 @@ export default function CVAstitiAsih() {
                     {pengalaman.year}
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-800 group-hover:text-emerald-700 transition-colors">
+                    <h3 className="font-bold text-slate-800 group-hover:text-emerald-700 transition-colors">
                       {pengalaman.title}
-                    </h4>
+                    </h3>
                     <p className="text-xs text-slate-500 mt-1 font-medium italic italic">
                       {pengalaman.source}
                     </p>
@@ -441,15 +790,151 @@ export default function CVAstitiAsih() {
               ))}
             </div>
           </section>
+
+          <section className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm border border-slate-100">
+            <h2 className="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
+              <span className="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 2v8" />
+                  <path d="m16 6-4 4-4-4" />
+                  <path d="M12 22v-8" />
+                  <path d="m8 18 4-4 4 4" />
+                </svg>
+              </span>
+              Pengalaman sebagai Presenter pada Pertemuan Ilmiah (5 Tahun
+              Terakhir)
+            </h2>
+
+            <div className="grid gap-4">
+              {presenter.map((presenter, index) => (
+                <div
+                  key={index}
+                  className="p-6 rounded-3xl border border-slate-100 bg-slate-50/50 flex justify-between items-start gap-4 hover:border-emerald-200 hover:bg-white transition-all duration-300 group"
+                >
+                  <div className="space-y-1">
+                    <h4 className="font-bold text-slate-800 leading-snug uppercase group-hover:text-emerald-700 transition-colors">
+                      {presenter.judulArtikel}
+                    </h4>
+                    <p className="text-xs text-emerald-600 font-bold uppercase tracking-tight">
+                      {presenter.acara}
+                    </p>
+                    <p className="text-xs text-slate-800 font-bold uppercase tracking-tight">
+                      {presenter.waktuTempat}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm border border-slate-100">
+            <h2 className="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
+              <span className="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 2v8" />
+                  <path d="m16 6-4 4-4-4" />
+                  <path d="M12 22v-8" />
+                  <path d="m8 18 4-4 4 4" />
+                </svg>
+              </span>
+              Pengalaman Perolehan HKI Dalam 5 Tahun Terakhir
+            </h2>
+
+            <div className="grid gap-4">
+              {hki.map((hki, index) => (
+                <div
+                  key={index}
+                  className="p-6 rounded-3xl border border-slate-100 bg-slate-50/50 flex justify-between items-start gap-4 hover:border-emerald-200 hover:bg-white transition-all duration-300 group"
+                >
+                  <div className="space-y-1">
+                    <h4 className="font-bold text-slate-800 leading-snug uppercase group-hover:text-emerald-700 transition-colors">
+                      {hki.judul}
+                    </h4>
+                    <p className="text-xs text-slate-800 font-bold uppercase tracking-tight">
+                      {hki.tahun}
+                    </p>
+                    <p className="text-xs text-slate-800 font-bold uppercase tracking-tight">
+                      {hki.jenis}
+                    </p>
+                    <p className="text-xs text-slate-800 font-bold uppercase tracking-tight">
+                      {hki.noIDP}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm border border-slate-100">
+            <h2 className="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
+              <span className="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 2v8" />
+                  <path d="m16 6-4 4-4-4" />
+                  <path d="M12 22v-8" />
+                  <path d="m8 18 4-4 4 4" />
+                </svg>
+              </span>
+              Pengalaman MEMBUAT BUKU 5 Tahun Terakhir
+            </h2>
+
+            <div className="grid gap-4">
+              {buku.map((buku, index) => (
+                <div
+                  key={index}
+                  className="p-6 rounded-3xl border border-slate-100 bg-slate-50/50 flex justify-between items-start gap-4 hover:border-emerald-200 hover:bg-white transition-all duration-300 group"
+                >
+                  <div className="space-y-1">
+                    <h4 className="font-bold text-slate-800 leading-snug uppercase group-hover:text-emerald-700 transition-colors">
+                      {buku.judul}
+                    </h4>
+                    <p className="text-xs text-slate-800 font-bold uppercase tracking-tight">
+                      {buku.tahun}
+                    </p>
+                    <p className="text-xs text-slate-800 font-bold uppercase tracking-tight">
+                      {buku.jenis}
+                    </p>
+                    <p className="text-xs text-slate-800 font-bold uppercase tracking-tight">
+                      {buku.halaman} Halaman
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
 
-      {/* Back Button */}
-      <div className="mt-12">
-        <a href="/" className="text-emerald-600 hover:underline">
-          ← Back to Our Team
-        </a>
-      </div>
     </div>
   );
 }
