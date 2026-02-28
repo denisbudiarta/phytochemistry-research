@@ -325,17 +325,30 @@ export default function Navbar() {
               </CardHeader>
               <CardContent className="space-y-6 text-slate-600 leading-relaxed">
                 <p className="text-justify">
-                  <span className="font-bold text-slate-900">Fitokimia</span>{" "}
-                  merupakan zat kimia tanaman dengan struktur bervariasi yang
-                  berfungsi untuk perlindungan dan reproduksi, termasuk
-                  fitoaleksin, fungsi hormonal, hingga alelokimia untuk
-                  pertahanan herbivora. Sering disebut sebagai{" "}
+                <span className="font-bold text-slate-900">Fitokimia</span>{" "}
+                adalah istilah kolektif untuk zat kimia tanaman dengan struktur dan fungsi yang bervariasi. 
+                Pada tanaman, zat-zat ini dapat berfungsi untuk perlindungan dan reproduksi, seperti warna dan bau 
+                untuk perlindungan dan daya tarik serangga untuk penyerbukan, fitoaleksin untuk pertahanan patogen, 
+                fungsi hormonal untuk pertumbuhan dan pemberian sinyal, antifeedant dan toksin untuk perlindungan serangga, 
+                dan alelokimia untuk pertahanan terhadap herbivora. 
+                Zat kimia tanaman ini sering disebut{" "}
                   <span className="italic font-bold text-emerald-700">
                     metabolit sekunder
-                  </span>
-                  , zat non-nutrisi ini memberikan efek preventif terhadap
-                  penyakit kronis.
+                  </span>, 
+                yaitu non-nutrisi yang memiliki atau memberikan efek perlindungan atau pencegahan penyakit.
+
+                <br/> <br />
+                  Bioaktivitas senyawa menggunakan metode invitro, invivo, dan in silico. 
+                  Ada tiga pendekatan yang berpotensi dalam produk bahan alam, di antaranya 
+                  adalah kosmetik, pangan, dan empiris pengobatan tradisional. 
+                  Dua pendekatan yang berpotensi berdasarkan saintifik yaitu dengan 
+                  menggunakan farmakologi dan fitokimia. 
+                <br /> <br />
+                  Keunggulan fitokimia dan bioaktivitasnya dikaitkan dengan perlindungan dari penyakit kronis, 
+                  dan penelusuran senyawa bioaktif dari tumbuhan sangat berkembang saat ini, sehingga banyak 
+                  ditemukan senyawa-senyawa metabolit sekunder baru dari tumbuhan yang mempunyai bioaktivitas tertentu. 
                 </p>
+               
                 <div className="grid md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl border border-slate-100">
                   <div>
                     <h4 className="font-bold text-slate-800 text-sm uppercase mb-3 flex items-center gap-2">
