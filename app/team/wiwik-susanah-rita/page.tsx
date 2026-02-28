@@ -592,7 +592,7 @@ export default function CVAstitiAsih() {
                     SINTA ID
                   </p>
                   <div className="bg-slate-50 py-3 rounded-2xl border border-slate-100 inline-block px-8 text-xl font-black text-emerald-600 tracking-wider">
-                    -
+                    5982477
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-4">
@@ -600,9 +600,9 @@ export default function CVAstitiAsih() {
                     <p className="text-[9px] font-black text-slate-400 uppercase mb-1">
                       Sinta
                     </p>
-                    <p className="text-1xl font-black text-slate-700">-</p>
+                    <p className="text-1xl font-black text-slate-700">1.145</p>
                     <p className="text-[8px] font-bold text-slate-400 mt-1 uppercase">
-                      H-Index
+                      Score Overall
                     </p>
                   </div>
                   <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">

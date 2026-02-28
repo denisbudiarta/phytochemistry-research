@@ -343,7 +343,7 @@ export default function Navbar() {
                   adalah kosmetik, pangan, dan empiris pengobatan tradisional. 
                   Dua pendekatan yang berpotensi berdasarkan saintifik yaitu dengan 
                   menggunakan farmakologi dan fitokimia. 
-                <br /> <br />
+                <br /> br
                   Keunggulan fitokimia dan bioaktivitasnya dikaitkan dengan perlindungan dari penyakit kronis, 
                   dan penelusuran senyawa bioaktif dari tumbuhan sangat berkembang saat ini, sehingga banyak 
                   ditemukan senyawa-senyawa metabolit sekunder baru dari tumbuhan yang mempunyai bioaktivitas tertentu. 
